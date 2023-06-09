@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{_layout.html}">
+
+<body>
+
+        <div layout:fragment="breadcrumb">
+                            
+            <div class="page-header">
+                            
+                <nav class="breadcrumb-one" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/company">Menu</a></li>
+                        <li class="breadcrumb-item"><a href="/company/companies">Companies</a></li>
+                        <li class="breadcrumb-item"><a th:href="'/company/companies/manageCompany/'+ ${company.id}">Manage</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><span>Add Project</span></li>
+                    </ol>
+                </nav>
+
+            </div>
+
+        </div>
+        
+        <!--  BEGIN CONTENT AREA  -->
+        
+            <div layout:fragment="content">
+                <div class="layout-px-spacing">
+
+                    <div class="row layout-spacing">
+    
+                        <!-- Content -->
+                       
+                        <div class="col-xl-6 col-lg-6 col-md-7 col-sm-12 layout-top-spacing" style="margin-top: 20px;" >
+    
+                            
+                            <div class="skills layout-spacing">
+                                <div class="widget-content widget-content-area">
+                                    <h3 class="">Add Project</h3>
+                                   <form th:action="@{/project}" method="post"><!--pass url to update borrowes-->
+                                    <div class="form-row mb-4">
+                                        <div class="col-3">
+                                            <label for="inputId">Company Id</label>
+                                            <input type="text" th:value="${company.id}" id="" class="form-control" placeholder="" name="company_id" readonly>
+                                        </div>
+                                    </div>
+                                        <div class="form-row mb-4">
+                                            <div class="col">
+                                                <label for="inputFName">Project Name</label>
+                                                <input type="text" class="form-control" id="inputPName" placeholder="Project Name" name="name" required>
+                                            </div>
+                                
+                                        </div>
+    
+                                        <!-- <input type="hidden" value="New" class="form-control" id="editStatus" placeholder="" name="status"> -->
+    
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </form>
+    
+                                </div>
+                         
+                        </div>
+    
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+         
+        <!--  END CONTENT AREA  -->
+ 
+
+</body>
+</html>
